@@ -56,9 +56,9 @@ class UnalignedDataset(BaseDataset):
         B_path = self.B_paths[index_B]
         A_img = np.load(A_path)
         A_img = np.expand_dims(A_img, axis=0)
-    	B_img = np.load(B_path)
-    	B_img = np.expand_dims(B_img, axis=0)
-    	# apply image transformation
+        B_img = np.load(B_path)
+        B_img = np.expand_dims(B_img, axis=0)
+        # apply image transformation
     	A = torch.from_numpy(A_img)
     	B = torch.from_numpy(B_img)
 
