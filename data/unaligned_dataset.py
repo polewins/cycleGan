@@ -4,6 +4,8 @@ from data.image_folder import make_dataset
 from PIL import Image
 import random
 import numpy as np
+import torch
+import torchvision
 
 
 class UnalignedDataset(BaseDataset):
