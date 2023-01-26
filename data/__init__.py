@@ -83,6 +83,7 @@ class CustomDatasetDataLoader():
 
     def __len__(self):
         """Return the number of data in the dataset"""
+        print(len)
         return min(len(self.dataset), self.opt.max_dataset_size)
 
     def __iter__(self):
