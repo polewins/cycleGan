@@ -68,6 +68,9 @@ class UnalignedDataset(BaseDataset):
         np.resize(A,(256, 256))
         np.resize(B,(256, 256))
         
+        print(A)
+        print(B)
+        
         return {'A': A, 'B': B, 'A_paths': A_path, 'B_paths': B_path}
 
     def __len__(self):
