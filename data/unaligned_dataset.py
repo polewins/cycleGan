@@ -6,6 +6,7 @@ import random
 import numpy as np
 import torch
 import torchvision
+from sklearn.preprocessing import normalize
 
 
 class UnalignedDataset(BaseDataset):
@@ -68,10 +69,13 @@ class UnalignedDataset(BaseDataset):
         np.resize(A,(256, 256))
         np.resize(B,(256, 256))
         
+        normalized_A = A / np.sqrt(np.sum(A**2))
+        normalized_B = B / np.sqrt(np.sum(B**2))
+        
         print(A)
         print(B)
         
-        return {'A': A, 'B': B, 'A_paths': A_path, 'B_paths': B_path}
+        return {'A': normalized_A, 'B': normalized_B, 'A_paths': A_path, 'B_paths': B_path}
 
     def __len__(self):
         """Return the total number of images in the dataset.
