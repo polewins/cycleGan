@@ -66,11 +66,11 @@ class UnalignedDataset(BaseDataset):
         A = torch.from_numpy(A_img)
         B = torch.from_numpy(B_img)
         
-        np.resize(A,(256, 256))
-        np.resize(B,(256, 256))
+        torch.resize(A,(256, 256))
+        torch.resize(B,(256, 256))
         
-        normalized_A = A / np.sqrt(np.sum(A**2))
-        normalized_B = B / np.sqrt(np.sum(B**2))
+        normalized_A = A / torch.sqrt(np.sum(A**2))
+        normalized_B = B / torch.sqrt(np.sum(B**2))
         
         print(A)
         print(B)
