@@ -62,20 +62,20 @@ class UnalignedDataset(BaseDataset):
         A_img = np.expand_dims(A_img, axis=0)
         B_img = np.load(B_path)
         B_img = np.expand_dims(B_img, axis=0)
+        # resize images
+        np.resize(A_img,(256, 256))
+        np.resize(B_img,(256, 256))
+        # normalize images
+        normalized_A = A_img / np.sqrt(np.sum(A_img**2))
+        normalized_B = B_img / np.sqrt(np.sum(B_img**2))
         # apply image transformation
-        A = torch.from_numpy(A_img)
-        B = torch.from_numpy(B_img)
-        
-        torch.resize(A,(256, 256))
-        torch.resize(B,(256, 256))
-        
-        normalized_A = A / torch.sqrt(np.sum(A**2))
-        normalized_B = B / torch.sqrt(np.sum(B**2))
+        A = torch.from_numpy(normalized_A)
+        B = torch.from_numpy(normalized_B)
         
         print(A)
         print(B)
         
-        return {'A': normalized_A, 'B': normalized_B, 'A_paths': A_path, 'B_paths': B_path}
+        return {'A': A, 'B': A, 'A_paths': A_path, 'B_paths': B_path}
 
     def __len__(self):
         """Return the total number of images in the dataset.
