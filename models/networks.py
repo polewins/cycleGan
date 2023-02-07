@@ -431,6 +431,7 @@ class ResnetBlock(nn.Module):
     def forward(self, x):
         """Forward function (with skip connections)"""
         out = x + self.conv_block(x)  # add skip connections
+        torch.cuda.empty_cache()
         return out
 
 
