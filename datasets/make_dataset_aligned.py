@@ -29,7 +29,7 @@ def align_images(a_file_paths, b_file_paths, target_path):
         aligned_image = Image.new("RGB", (img_a.size[0] * 2, img_a.size[1]))
         aligned_image.paste(img_a, (0, 0))
         aligned_image.paste(img_b, (img_a.size[0], 0))
-        aligned_image.save(os.path.join(target_path, '{:04d}.jpg'.format(i)))
+        aligned_image.save(os.path.join(target_path, '{:04d}.npy'.format(i)))
 
 
 if __name__ == '__main__':
