@@ -63,8 +63,8 @@ class UnalignedDataset(BaseDataset):
         B_img = np.load(B_path)
         B_img = np.expand_dims(B_img, axis=0)
         # resize images
-        np.resize(A_img,(128, 128))
-        np.resize(B_img,(128, 128))
+        np.resize(A_img,(512, 512))
+        np.resize(B_img,(512, 512))
         # normalize images
         normalized_A = A_img / np.sqrt(np.sum(A_img**2))
         normalized_B = B_img / np.sqrt(np.sum(B_img**2))
